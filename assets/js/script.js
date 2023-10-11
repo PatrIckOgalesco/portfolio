@@ -137,3 +137,22 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
+
+
+// Get the "Send Message" button
+  const sendMessageBtn = document.querySelector('[data-form-btn]');
+
+  // Function to handle form submission
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Create a custom alert with clickable links
+    Swal.fire({
+      title: "Sorry, Patrick is not available to message.",
+      html: `Message him on his <a href="https://www.facebook.com/profile.php?id=100078646130852&mibextid=LQQJ4d" target="_blank">Facebook</a> or email at <a href="mailto:jpatrickogalesco@gmail.com">jpatrickogalesco@gmail.com</a>`,
+      icon: "info",
+    });
+  }
+
+  // Add a click event listener to the "Send Message" button
+  sendMessageBtn.addEventListener('click', handleSubmit);
