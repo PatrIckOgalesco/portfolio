@@ -148,9 +148,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
     // Create a custom alert with clickable links
     Swal.fire({
-      title: "Sorry, Patrick is not available to message.",
-      html: `Message him on his <a href="https://www.facebook.com/profile.php?id=100078646130852&mibextid=LQQJ4d" target="_blank">Facebook</a> or email at <a href="mailto:jpatrickogalesco@gmail.com">jpatrickogalesco@gmail.com</a>`,
-      icon: "info",
+      title: "Oops!",
+      text: "Patrick is not available to message here.",
+      html: `You can reach him on <a href="https://www.facebook.com/profile.php?id=100078646130852&mibextid=LQQJ4d" target="_blank">Facebook</a> or email at <a href="mailto:jpatrickogalesco@gmail.com">jpatrickogalesco@gmail.com</a>`,
+      icon: "error",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK",
     });
   }
 
