@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --text-color: #ccc;
+}
+
+.top-nav {
+  background: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  z-index: 100;
+  opacity: 50%;
+}
+
+#nav-btn, #theme-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Adjust this value to your desired spacing */
+  left: -200px; /* Start hidden */
+  width: 200px; /* Adjust the width as needed */
+  height: calc(100% - 60px); /* Adjust this value to fit your design */
+  padding: 30px 14px;
+  background: var(--sidebar-color);
+  z-index: 99; /* Slightly lower than the top navigation */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-links li {
+  margin-top: 10px;
+}
+
+.menu-links .nav-link a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.sidebar.open .menu-links .nav-link a {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
