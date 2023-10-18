@@ -963,7 +963,7 @@ font-size: 15px;
   margin-bottom: 15px;
 }
 
-.project-img::before {
+/*.project-img::before {
   content: "";
   position: absolute;
   top: 0;
@@ -973,12 +973,12 @@ font-size: 15px;
   background: transparent;
   z-index: 1;
   transition: var(--transition-1);
-}
+}*/
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+/*.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }*/
 
 .project-item-icon-box {
-  --scale: 0.8;
+  --scale: 1;
 
   background: var(--jet);
   color: var(--orange-yellow-crayola);
