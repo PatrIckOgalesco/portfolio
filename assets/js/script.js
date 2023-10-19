@@ -138,44 +138,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-
-
-  // // Get the <ion-icon> element and the image to be displayed
-  // const ionIcon = document.querySelector('ion-icon[name="eye-outline"]');
-  // const image = document.querySelector('.project-img img');
-
-  // // Function to show the image
-  // function showImage() {
-  //   image.style.display = 'block';
-  // }
-
-  // // Function to close the image
-  // function closeImage() {
-  //   image.style.display = 'none';
-  // }
-
-  // // Add a click event listener to the <ion-icon> element to show the image
-  // ionIcon.addEventListener('click', showImage);
-
-  // // Add a click event listener to the document to close the image when clicking anywhere
-  // document.addEventListener('click', closeImage);
-
-
-
-
-
- // // Get the "Send Message" button
- //  const sendMessageBtn = document.getElementById('submit-button');
-  
- //  // Function to disable the button
- //  function disableButton() {
- //    sendMessageBtn.setAttribute('disabled', 'true');
- //  }
-  
- //  // Call the disableButton() function to disable the button initially
- //  disableButton();
-
-
  // Get the "Send Message" button
   const sendMessageBtn = document.querySelector('[data-form-btn]');
 
