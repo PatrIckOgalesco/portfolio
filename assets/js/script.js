@@ -158,7 +158,3 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   // Add a click event listener to the "Send Message" button
   sendMessageBtn.addEventListener('click', handleSubmit);
-
-
-
-  
