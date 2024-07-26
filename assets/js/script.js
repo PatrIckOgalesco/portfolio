@@ -54,7 +54,7 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () {
@@ -75,10 +75,15 @@ for (let i = 0; i < selectItems.length; i++) {
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
+  console.log(`Filtering by: ${selectedValue}`); // Debug log
+
   for (let i = 0; i < filterItems.length; i++) {
+    const category = filterItems[i].dataset.category.toLowerCase();
+    console.log(`Category: ${category}`); // Debug log
+
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
+    } else if (selectedValue === category) {
       filterItems[i].classList.add("active");
     } else {
       filterItems[i].classList.remove("active");
@@ -138,23 +143,23 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
- // Get the "Send Message" button
-  const sendMessageBtn = document.querySelector('[data-form-btn]');
+// Get the "Send Message" button
+const sendMessageBtn = document.querySelector('[data-form-btn]');
 
-  // Function to handle form submission
-  function handleSubmit(event) {
-    event.preventDefault(); // Prevent the form from submitting
+// Function to handle form submission
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent the form from submitting
 
-    // Create a customized notification with clickable links
-    Swal.fire({
-      title: "Oops!",
-      text: "Patrick is not available to message here.",
-      html: `You can reach him on <a href="https://www.facebook.com/profile.php?id=100078646130852&mibextid=LQQJ4d" target="_blank">Facebook</a> or email at <a href="mailto:jpatrickogalesco@gmail.com">jpatrickogalesco@gmail.com</a>`,
-      icon: "error",
-      confirmButtonColor: "#3085d6",
-      confirmButtonText: "OK",
-    });
-  }
+  // Create a customized notification with clickable links
+  Swal.fire({
+    title: "Oops!",
+    text: "Patrick is not available to message here.",
+    html: `You can reach him on <a href="https://www.facebook.com/profile.php?id=100078646130852&mibextid=LQQJ4d" target="_blank">Facebook</a> or email at <a href="mailto:jpatrickogalesco@gmail.com">jpatrickogalesco@gmail.com</a>`,
+    icon: "error",
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "OK",
+  });
+}
 
-  // Add a click event listener to the "Send Message" button
-  sendMessageBtn.addEventListener('click', handleSubmit);
+// Add a click event listener to the "Send Message" button
+sendMessageBtn.addEventListener('click', handleSubmit);
