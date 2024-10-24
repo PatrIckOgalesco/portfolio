@@ -4,6 +4,12 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>terminal-based portflio</title>
+      <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+      <link
+            rel="shortcut icon"
+            href="https://raw.githubusercontent.com/PatrIckOgalesco/portfolio/refs/heads/main/assets/images/logo.ico"
+            type="image/x-icon"
+        />
       
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap');
@@ -16,6 +22,7 @@
          font-size: 12px;
          color: #343541;
          }
+
          body {
          position: relative;
          display: flex;
@@ -23,7 +30,7 @@
          align-items: center;
          height: 100vh;
          margin: 0;
-         background-color: #000;
+         background-color: #ece8e1;
          overflow: hidden;
          }
          body::before {
@@ -74,7 +81,7 @@
          flex: 1;
          overflow-y: scroll;
          padding: 15px;
-         background-color: #ece8e1;
+         background-color:#ece8e1;
          color: #000000;
          font-size: 14px;
          border-bottom-left-radius: 10px;
@@ -95,7 +102,7 @@
          content: '';
          display: inline-block;
          width: 10px;
-         height: 18px;
+         height: 12px;
          background-color: #00ff00;
          animation: blink 1s step-end infinite;
          }
@@ -127,6 +134,10 @@
          }
          .info-text{
          color: #ff6347;
+         display: inline-block;
+         }
+         .info-text1{
+         color: #05ce91;
          display: inline-block;
          }
          @keyframes typing {
@@ -184,6 +195,7 @@
          <div class="terminal_content" id="terminal-content">
             <p>
                ~ $<span class="info-text">&nbsp echo</span> Welcome to my Terminal-Based Porfolio!<br>
+               ~ $<span class="info-text">&nbsp echo</span> To see available commands, type 'help'.<br>
                ~ $<span class="info-text">&nbsp echo</span> Environment successfully initialized.<br>
                ~ $<span class="info-text">&nbsp echo</span> Start Typing...<br>
             </p>
@@ -202,14 +214,93 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
          // IntelliSense options
-         let predictiveTextOptions = ["about", "skills", "portfolio", "work", "certification"];
-         let commandResponses = {
-             "about": "This is a terminal-based portfolio showcasing my background and skills.",
-             "skills": "I am skilled in HTML, CSS, JavaScript, PHP, and more.",
-             "portfolio": "Here is a list of my projects: Project A, Project B, Project C.",
-             "work": "I have worked on various projects related to web development and system design.",
-             "certification": "I am certified in CSS NC II, and I have completed several technical courses."
-         };
+        let predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification"];
+        let commandResponses = {
+           "hi": `
+              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+              <span class="info-text">&nbsp;cd ~ $ </span> Hello there! How can I assist you today?
+           `,
+
+           "hello": `
+              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+              <span class="info-text">&nbsp;cd ~ $ </span> Hi! Welcome to my terminal portfolio. What would you like to know?
+           `,
+
+            "about": "<span class=\"info-text\">&nbsp;ls</span><span class=\"info-text1\">&nbsp; infoCommand</span> <span class=\"info-text\">&nbsp;cd ~ $ </span> Hello there! Allow me to introduce myself—I'm Patrick Ogalesco, an IT Specialist with a unique blend of technical expertise and creative problem-solving skills. I recently earned a BSc in Computer Science, where I delved into coding and programming while also nurturing my passion for digital artistry.<br><br>My journey combines creativity and logic, enabling me to tackle complex challenges and develop innovative solutions. Driven by a natural curiosity and a strong commitment to bridging the gap between technology and design, I'm eager to bring a fresh perspective to the field of IT.",
+
+           "skills": "<span class=\"info-text\">&nbsp;ls</span><span class=\"info-text1\">&nbsp; infoCommand</span> <span class=\"info-text\">&nbsp;cd ~ $ </span>I possess skills in...",
+
+           "portfolio": `
+              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+              <span class="info-text">&nbsp;cd ~ $ </span> <br>
+              You can visit some of my work (others will be posted here soon):
+              <br>
+              <a href="https://patrickogalesco.github.io/ai/" target="_blank" style="text-decoration: none;">AI Chat with Ginimi API</a>
+              <br>
+              <a href="https://patrickogalesco.github.io/Keyboard-UI/" target="_blank" style="text-decoration: none;">Keyboard UI</a>
+              <br>
+           `,
+
+           "work experience": '<span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span><span class="info-text">&nbsp;cd ~ $ </span> Computer System Services Trainer — April 04 - May 22 2024...',
+
+           "contact": `
+              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+              <span class="info-text">&nbsp;cd ~ $ </span> <br>You can reach me at:<br>
+              <a href="tel:09093303767" style="text-decoration: none;">Number: 09093303767</a>
+              <br>
+              <a href="https://www.facebook.com/profile.php?id=100078646130852" target="_blank" style="text-decoration: none;">FB: Facebook Profile</a>
+              <br>
+              <a href="mailto:jpatrickogalesco@gmail.com" style="text-decoration: none;">Gmail: jpatrickogalesco@gmail.com</a>
+           `,
+
+           "help": `
+           <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+           <span class="info-text">&nbsp;cd ~ $ </span> This system is a script-based command-line portfolio, meaning that it only responds based on my program. Below are the queries you can ask:
+           <br> 
+           - about
+           <br>
+           - skills
+           <br>
+           - work experience
+           <br>
+           - training and certification
+           <br>
+           - contact
+           <br>
+        `,
+
+           "training and certification": `
+              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
+              <span class="info-text">&nbsp;cd ~ $ </span> To view my certification, please click the link below:
+              <ul style="list-style-type: none; padding-left: 0;">
+                 <li style="margin-bottom: 10px;">
+                    <a href="https://drive.google.com/file/d/1PXSoM131cQ3JMSQchKSRdvuHJc7Hy9dT/view?usp=drive_link" 
+                       style="text-decoration: none;">
+                       Computer System Servicing NCII
+                    </a>
+                 </li>
+                 <li style="margin-bottom: 10px;">
+                    <a href="https://drive.google.com/file/d/1locP9i6pJHTh02K00LINJBD1QsnP-Otq/view?usp=drive_link" 
+                       style="text-decoration: none;">
+                       Cybersecurity Awareness Capacity: Engineering and Ethical Hacking
+                    </a>
+                 </li>
+                 <li style="margin-bottom: 10px;">
+                    <a href="https://drive.google.com/file/d/1i1mcBa23iUv0xyu4F4cOdOx6M4cYo1kk/view?usp=drive_link" 
+                       style="text-decoration: none;">
+                       Computer Hardware Basics
+                    </a>
+                 </li>
+                 <li style="margin-bottom: 10px;">
+                    <a href="https://drive.google.com/file/d/1eFiK9GD6Ny7PMm8Hhz2w5qAnX-C1XRWA/view?usp=drive_link" 
+                       style="text-decoration: none;">
+                       AI-gnite: Exploring the Role of AI for Economic Growth and Innovation
+                    </a>
+                 </li>
+              </ul>
+           `
+        };
+
          
          function sleep(ms) {
              return new Promise(resolve => setTimeout(resolve, ms));
@@ -259,11 +350,14 @@
          }
          
          function applyIntelliSense(suggestion) {
-             const input = document.querySelector(".cursor");
-             input.innerText = suggestion;
-             placeCaretAtEnd(input);
-             $("#intelliSenseContainer").hide(); // Hide suggestions after selection
-         }
+            const input = document.querySelector(".cursor");
+            input.innerText = suggestion; // Display the selected suggestion in the input
+            placeCaretAtEnd(input);
+            $("#intelliSenseContainer").hide(); // Hide suggestions after selection
+
+            // Automatically trigger the response after selection
+            generateResponse(suggestion.toLowerCase()); // Pass the selected suggestion in lowercase
+        }
          
          async function typeResponse(responseText, answer) {
              for (let i = 0; i < answer.length; i++) {
@@ -272,56 +366,59 @@
              }
          }
          
-         async function init_terminal_line() {
-         $(".cursor").keydown(async function (e) {
-             if (e.keyCode === 13) { // Enter key
-                 e.preventDefault();
-                 let command = $(this).html().trim().toLowerCase(); // Remove extra spaces
-                 if (!command) return;
-         
-                 $("#intelliSenseContainer").hide(); // Hide IntelliSense after pressing Enter
-         
-                 let response = `zsh: command not found: ${command}<br>`;
-                 
-                 // Use the commandResponses object for recognized commands
-                 if (commandResponses[command]) {
-                     response = commandResponses[command] + "<br>";
-                 }
-         
-                 // Display the user input and response
-                 $(".cursor").parent().remove(); // Remove the current cursor line
-                 let userCommandHtml = `<p><span class="color1">➜</span>&nbsp;&nbsp;<span class="color2">~</span>&nbsp;${command}</p>`;
-                 $("#terminal-content").append(userCommandHtml);
-         
-                 // Create a new div for the response
-                 let responseDiv = document.createElement("div");
-                 responseDiv.className = "terminal_line";
-                 let responseText = document.createElement("p");
-                 responseText.className = "response";
-                 responseDiv.appendChild(responseText);
-                 $("#terminal-content").append(responseDiv);
-         
-                 // Type out the response
-                 await typeResponse(responseText, response);
-         
-                 // Add a new line or space after each user command and response
-                 $("#terminal-content").append("<br><br>"); // Adds space
-         
-                 // Add a new terminal line for user input
-                 $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ git userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
-                 placeCaretAtEnd(document.querySelector(".cursor"));
-                 init_terminal_line();
-         
-                 // Scroll to the bottom after adding new content
-                 scrollToBottom();
-             }
-         });
-         }
-         
-         
-         $(document).ready(function() {
-             init_terminal_line(); // Initialize terminal and event handling
-         });
+         async function generateResponse(command) {
+            let response = `zsh: command not found: ${command}<br>`;
+
+            // Use the commandResponses object for recognized commands
+            if (commandResponses[command]) {
+                response = commandResponses[command] + "<br>";
+            }
+
+            // Display the user input and response
+            $(".cursor").parent().remove(); // Remove the current cursor line
+            let userCommandHtml = `<p><span class="color1">➜</span>&nbsp;&nbsp;<span class="color2">~</span>&nbsp;${command}</p>`;
+            $("#terminal-content").append(userCommandHtml);
+
+            // Create a new div for the response
+            let responseDiv = document.createElement("div");
+            responseDiv.className = "terminal_line";
+            let responseText = document.createElement("p");
+            responseText.className = "response";
+            responseDiv.appendChild(responseText);
+            $("#terminal-content").append(responseDiv);
+
+            // Type out the response
+            await typeResponse(responseText, response);
+
+            // Add a new line or space after each user command and response
+            $("#terminal-content").append("<br><br>"); // Adds space
+
+            // Add a new terminal line for user input
+            $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ git userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
+            placeCaretAtEnd(document.querySelector(".cursor"));
+            init_terminal_line();
+
+            // Scroll to the bottom after adding new content
+            scrollToBottom();
+        }
+
+        async function init_terminal_line() {
+            $(".cursor").keydown(async function (e) {
+                if (e.keyCode === 13) { // Enter key
+                    e.preventDefault();
+                    let command = $(this).html().trim(); // Get the user input as is
+                    if (!command) return;
+
+                    $("#intelliSenseContainer").hide(); // Hide IntelliSense after pressing Enter
+
+                    generateResponse(command.toLowerCase()); // Pass the command in lowercase for comparison
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            init_terminal_line(); // Initialize terminal and event handling
+        });
       </script>
    </body>
 </html>
