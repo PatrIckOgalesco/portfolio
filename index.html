@@ -350,6 +350,7 @@
          }
          
          function applyIntelliSense(suggestion) {
+            command = command.toLowerCase();
             const input = document.querySelector(".cursor");
             input.innerText = suggestion; // Display the selected suggestion in the input
             placeCaretAtEnd(input);
