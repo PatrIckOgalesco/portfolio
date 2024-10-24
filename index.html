@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>terminal-based portflio</title>
+      
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap');
+
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: 'Fira Code', monospace;
+         font-size: 12px;
+         color: #343541;
+         }
+         body {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         background-color: #000;
+         overflow: hidden;
+         }
+         body::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         background: #ece8e1;
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         }
+         .window {
+         position: relative;
+         z-index: 1;
+         display: flex;
+         flex-direction: column;
+         background-color: #ece8e1;
+         box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+         color: #343541;
+         max-width: 90%;
+         max-height: 80%;
+         width: 100%;
+         height: 100%;
+         }
+         .window__taskbar {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         background-color: #ece8e1;
+         padding: 10px 15px;
+         border-bottom: 1px solid #ccc;
+         height: 50px;
+         }
+         .window__taskbar--actions button {
+         width: 12px;
+         height: 12px;
+         margin-right: 2px;
+         border-radius: 50%;
+         border: none;
+         }
+         .close { background-color: #343541; }
+         .minimize { background-color: #343541; }
+         .maximize { background-color: #343541; }
+         .terminal_content {
+         flex: 1;
+         overflow-y: scroll;
+         padding: 15px;
+         background-color: #f1f1f1;
+         color: #000000;
+         font-size: 14px;
+         border-bottom-left-radius: 10px;
+         border-bottom-right-radius: 10px;
+         }
+         .terminal_line p {
+         margin: 0;
+         }
+         .color1{ color: #343541; }
+         .color2 { color: #343541; }
+         .cursor {
+         outline: none;
+         display: inline;
+         white-space: nowrap; /* Prevent wrapping */
+         word-break: keep-all; /* Keep text together */
+         }
+         .cursor::after {
+         content: '';
+         display: inline-block;
+         width: 10px;
+         height: 18px;
+         background-color: #00ff00;
+         animation: blink 1s step-end infinite;
+         }
+         .intelli-sense-dropdown {
+         position: absolute;
+         background-color: white;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         max-height: 150px;
+         overflow-y: auto;
+         z-index: 1000; /* Make sure it appears above other content */
+         display: none; /* Initially hidden */
+         }
+         .intelli-sense-dropdown p {
+         padding: 8px 12px; /* Add padding */
+         margin: 0;
+         cursor: pointer;
+         font-size: 12px;
+         white-space: nowrap; /* Prevent text wrapping */
+         }
+         .intelli-sense-dropdown p:hover {
+         background-color: #f0f0f0; /* Highlight on hover */
+         }
+         .typing-animation {
+         animation: typing 3s steps(30, end), blink-caret .75s step-end infinite; /* Slowed down typing animation */
+         white-space: nowrap;
+         overflow: hidden;
+         border-right: 2px solid black;
+         }
+         .info-text{
+         color: #ff6347;
+         display: inline-block;
+         }
+         @keyframes typing {
+         from { width: 0 }
+         to { width: 100% }
+         }
+         @keyframes blink-caret {
+         from, to { border-color: transparent }
+         50% { border-color: black; }
+         }
+         @keyframes blink {
+         0% { background-color: #343541; }
+         50% { background-color: transparent; }
+         100% { background-color: #343541; }
+         }
+         /* Media Queries */
+         @media (max-width: 480px) {
+         *{
+         font-size: 10px;
+         }
+         .window {
+         width: calc(100% - 10px);
+         height: calc(100vh - 10px);
+         margin: 10px;
+         }
+         .terminal {
+         padding: 10px;
+         }
+         .terminal_content {
+         font-size: 12px;
+         padding: 10px;
+         }
+         .window__taskbar {
+         padding: 5px 10px;
+         }
+         .cursor::after {
+         width: 8px;
+         height: 14px;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="window terminal">
+         <div class="window__taskbar">
+            <div class="window__taskbar--actions">
+               <button class="close"></button>
+               <button class="minimize"></button>
+               <button class="maximize"></button>
+            </div>
+            <div class="window__taskbar--content">
+               <h4>Terminal -- zsh - v1.0.0.0</h4>
+            </div>
+         </div>
+         <div class="terminal_content" id="terminal-content">
+            <p>
+               ~ $<span class="info-text">&nbsp echo</span> Welcome to my Terminal-Based Porfolio!<br>
+               ~ $<span class="info-text">&nbsp echo</span> Environment successfully initialized.<br>
+               ~ $<span class="info-text">&nbsp echo</span> Start Typing...<br>
+            </p>
+            <br>
+            <!-- Initial Terminal Line -->
+            <div class="terminal_line">
+               <p>
+                  <span class="color1">➜ git userCommand</span>&nbsp;&nbsp;
+                  <span class="color2">~</span>&nbsp;
+                  <span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span>
+               </p>
+            </div>
+         </div>
+      </div>
+      <div id="intelliSenseContainer" class="intelli-sense-dropdown"></div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+         // IntelliSense options
+         let predictiveTextOptions = ["about", "skills", "portfolio", "work", "certification"];
+         let commandResponses = {
+             "about": "This is a terminal-based portfolio showcasing my background and skills.",
+             "skills": "I am skilled in HTML, CSS, JavaScript, PHP, and more.",
+             "portfolio": "Here is a list of my projects: Project A, Project B, Project C.",
+             "work": "I have worked on various projects related to web development and system design.",
+             "certification": "I am certified in CSS NC II, and I have completed several technical courses."
+         };
+         
+         function sleep(ms) {
+             return new Promise(resolve => setTimeout(resolve, ms));
+         }
+         
+         function placeCaretAtEnd(el) {
+             el.focus();
+             const range = document.createRange();
+             range.selectNodeContents(el);
+             range.collapse(false);
+             const sel = window.getSelection();
+             sel.removeAllRanges();
+             sel.addRange(range);
+         }
+         
+         function scrollToBottom() {
+             const terminalContent = document.getElementById('terminal-content');
+             terminalContent.scrollTop = terminalContent.scrollHeight;
+         }
+         
+         function showIntelliSense(event) {
+             const inputText = event.target.innerText.trim().toLowerCase();
+             const suggestions = predictiveTextOptions.filter(option => option.startsWith(inputText));
+         
+             const intelliSenseContainer = $("#intelliSenseContainer");
+             intelliSenseContainer.empty();
+         
+             // Show suggestions only if input length is greater than 0
+             if (inputText.length > 0 && suggestions.length > 0) {
+                 suggestions.forEach(option => {
+                     const suggestionElement = $(`<p>${option}</p>`);
+                     suggestionElement.on('click', function() {
+                         applyIntelliSense(option);
+                     });
+                     intelliSenseContainer.append(suggestionElement);
+                 });
+         
+                 const rect = event.target.getBoundingClientRect();
+                 intelliSenseContainer.css({
+                     left: `${rect.left}px`,
+                     top: `${Math.min(rect.bottom + window.scrollY, window.innerHeight - intelliSenseContainer.outerHeight())}px`,
+                     display: 'block' // Show suggestions
+                 });
+             } else {
+                 intelliSenseContainer.hide(); // Hide if no suggestions or input is empty
+             }
+         }
+         
+         function applyIntelliSense(suggestion) {
+             const input = document.querySelector(".cursor");
+             input.innerText = suggestion;
+             placeCaretAtEnd(input);
+             $("#intelliSenseContainer").hide(); // Hide suggestions after selection
+         }
+         
+         async function typeResponse(responseText, answer) {
+             for (let i = 0; i < answer.length; i++) {
+                 responseText.innerHTML = answer.substring(0, i + 1);
+                 await sleep(15); // Adjust typing speed here
+             }
+         }
+         
+         async function init_terminal_line() {
+         $(".cursor").keydown(async function (e) {
+             if (e.keyCode === 13) { // Enter key
+                 e.preventDefault();
+                 let command = $(this).html().trim().toLowerCase(); // Remove extra spaces
+                 if (!command) return;
+         
+                 $("#intelliSenseContainer").hide(); // Hide IntelliSense after pressing Enter
+         
+                 let response = `zsh: command not found: ${command}<br>`;
+                 
+                 // Use the commandResponses object for recognized commands
+                 if (commandResponses[command]) {
+                     response = commandResponses[command] + "<br>";
+                 }
+         
+                 // Display the user input and response
+                 $(".cursor").parent().remove(); // Remove the current cursor line
+                 let userCommandHtml = `<p><span class="color1">➜</span>&nbsp;&nbsp;<span class="color2">~</span>&nbsp;${command}</p>`;
+                 $("#terminal-content").append(userCommandHtml);
+         
+                 // Create a new div for the response
+                 let responseDiv = document.createElement("div");
+                 responseDiv.className = "terminal_line";
+                 let responseText = document.createElement("p");
+                 responseText.className = "response";
+                 responseDiv.appendChild(responseText);
+                 $("#terminal-content").append(responseDiv);
+         
+                 // Type out the response
+                 await typeResponse(responseText, response);
+         
+                 // Add a new line or space after each user command and response
+                 $("#terminal-content").append("<br><br>"); // Adds space
+         
+                 // Add a new terminal line for user input
+                 $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ git userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
+                 placeCaretAtEnd(document.querySelector(".cursor"));
+                 init_terminal_line();
+         
+                 // Scroll to the bottom after adding new content
+                 scrollToBottom();
+             }
+         });
+         }
+         
+         
+         $(document).ready(function() {
+             init_terminal_line(); // Initialize terminal and event handling
+         });
+      </script>
+   </body>
+</html>
