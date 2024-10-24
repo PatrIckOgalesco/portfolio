@@ -350,7 +350,6 @@
          }
          
          function applyIntelliSense(suggestion) {
-            command = command.toLowerCase();
             const input = document.querySelector(".cursor");
             input.innerText = suggestion; // Display the selected suggestion in the input
             placeCaretAtEnd(input);
@@ -359,6 +358,7 @@
             // Automatically trigger the response after selection
             generateResponse(suggestion.toLowerCase()); // Pass the selected suggestion in lowercase
         }
+
          
          async function typeResponse(responseText, answer) {
              for (let i = 0; i < answer.length; i++) {
@@ -368,6 +368,10 @@
          }
          
          async function generateResponse(command) {
+
+            command = command.toLowerCase();
+
+
             let response = `zsh: command not found: ${command}<br>`;
 
             // Use the commandResponses object for recognized commands
