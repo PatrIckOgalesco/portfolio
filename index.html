@@ -51,7 +51,7 @@
          display: flex;
          flex-direction: column;
          background-color: #ece8e1;
-         box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+              box-shadow: 0 0 20px rgba(0, 0, 0, 1);
          color: #343541;
          max-width: 90%;
          max-height: 80%;
@@ -101,8 +101,8 @@
          .cursor::after {
          content: '';
          display: inline-block;
-         width: 10px;
-         height: 12px;
+         width: 5px;
+         height: 18px;
          background-color: #00ff00;
          animation: blink 1s step-end infinite;
          }
@@ -195,7 +195,7 @@
          <div class="terminal_content" id="terminal-content">
             <p>
                ~ $<span class="info-text">&nbsp echo</span> Welcome to my Terminal-Based Porfolio!<br>
-               ~ $<span class="info-text">&nbsp echo</span> To see available commands, type 'help'.<br>
+               ~ $<span class="info-text">&nbsp echo</span> To see available commands, type <span class="info-text">'help'</span>.<br>
                ~ $<span class="info-text">&nbsp echo</span> Environment successfully initialized.<br>
                ~ $<span class="info-text">&nbsp echo</span> Start Typing...<br>
             </p>
@@ -217,35 +217,31 @@
         let predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification"];
         let commandResponses = {
            "hi": `
-              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-              <span class="info-text">&nbsp;cd ~ $ </span> Hello there! How can I assist you today?
+              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Hello there! How can I assist you today?
            `,
 
            "hello": `
-              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-              <span class="info-text">&nbsp;cd ~ $ </span> Hi! Welcome to my terminal portfolio. What would you like to know?
+              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Hi! Welcome to my terminal portfolio. What would you like to know?
            `,
 
-            "about": "<span class=\"info-text\">&nbsp;ls</span><span class=\"info-text1\">&nbsp; infoCommand</span> <span class=\"info-text\">&nbsp;cd ~ $ </span> Hello there! Allow me to introduce myself—I'm Patrick Ogalesco, an IT Specialist with a unique blend of technical expertise and creative problem-solving skills. I recently earned a BSc in Computer Science, where I delved into coding and programming while also nurturing my passion for digital artistry.<br><br>My journey combines creativity and logic, enabling me to tackle complex challenges and develop innovative solutions. Driven by a natural curiosity and a strong commitment to bridging the gap between technology and design, I'm eager to bring a fresh perspective to the field of IT.",
+            "about": "<span class=\"info-text\">&nbsp;~ $ </span><span class=\"info-text1\">&nbsp;infoCommand</span> I'm just an average person, nothing too special!<br><br> Anyway hello there! Allow me to introduce myself—I'm Patrick Ogalesco, an IT Specialist with a unique blend of technical expertise and creative problem-solving skills. I recently earned a BSc in Computer Science, where I delved into coding and programming while also nurturing my passion for digital artistry.<br><br>My journey combines creativity and logic, enabling me to tackle complex challenges and develop innovative solutions. Driven by a natural curiosity and a strong commitment to bridging the gap between technology and design, I'm eager to bring a fresh perspective to the field of IT.",
 
-           "skills": "<span class=\"info-text\">&nbsp;ls</span><span class=\"info-text1\">&nbsp; infoCommand</span> <span class=\"info-text\">&nbsp;cd ~ $ </span>I possess skills in:<br>- Digital Art<br>- Web Development<br>- Microsoft Applications<br>- Troubleshooting<br>- Network Configuration<br>- Artistic Vision<br>- Collaboration<br>- Adaptability<br>- Attention to Detail<br>- Continuous Learning<br><br>I am currently learning React Native with Expo.<br>",
+           "skills": "<span class=\"info-text\">&nbsp;~ $ </span><span class=\"info-text1\">&nbsp;infoCommand</span> I possess skills in:<br><span class=\"info-text\">&nbsp;~ $ mkdir</span> Digital Art<br><span class=\"info-text\">&nbsp;~ $ mkdir</span> Web Development | Design<br><span class=\"info-text\">&nbsp;~ $ mkdir</span> Microsoft Applications<br><span class=\"info-text\">&nbsp;~ $ mkdir</span> Troubleshooting<br><span class=\"info-text\">&nbsp;~ $ mkdir</span> Network Configuration<br><br><span class=\"info-text\">&nbsp;~ $ mkdir</span> I’m currently learning something new, but it’s a secret for now. Life feels so much better when no one knows what you're up to!",
 
            "portfolio": `
-              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-              <span class="info-text">&nbsp;cd ~ $ </span> <br>
-              You can visit some of my work (others will be posted here soon):
-              <br>
+              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span>
+              You can visit some of my work (others will be posted here soon):<br>
+              <br><span class="info-text">&nbsp;~ $ ls</span>
               <a href="https://patrickogalesco.github.io/ai/" target="_blank" style="text-decoration: none;">AI Chat with Ginimi API</a>
-              <br>
+              <br><span class="info-text">&nbsp;~ $ ls</span>
               <a href="https://patrickogalesco.github.io/Keyboard-UI/" target="_blank" style="text-decoration: none;">Keyboard UI</a>
               <br>
            `,
 
-           "work experience": '<span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span><span class="info-text">&nbsp;cd ~ $ </span> Computer System Services Trainer — April 04 - May 22 2024...',
+           "work experience": '<span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Computer System Services Trainer — April 04 - May 22 2024 <br><span class="info-text1">&nbsp; ~ $ cd</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~ $ cd</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~ $ cd</span> Trained 20 students over a 40-day period, improving their practical skills<br><br><span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Intership — May 07 - July 12, 2023 <br><span class="info-text1">&nbsp; ~ $ cd</span> Data Entry and Management<br> <span class="info-text1">&nbsp; ~ $ cd</span> Technical Support',
 
            "contact": `
-              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-              <span class="info-text">&nbsp;cd ~ $ </span> <br>You can reach me at:<br>
+              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> <br>You can reach me at:<br>
               <a href="tel:09093303767" style="text-decoration: none;">Number: 09093303767</a>
               <br>
               <a href="https://www.facebook.com/profile.php?id=100078646130852" target="_blank" style="text-decoration: none;">FB: Facebook Profile</a>
@@ -254,44 +250,44 @@
            `,
 
            "help": `
-           <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-           <span class="info-text">&nbsp;cd ~ $ </span> This system is a script-based command-line portfolio, meaning that it only responds based on my program. Below are the queries you can ask:
+           <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> This system is a script-based command-line portfolio, meaning that it only responds based on my program. Below are the queries you can ask:
            <br> 
-           - about
+           <span class="info-text">&nbsp;~ $ cd</span> about
            <br>
-           - skills
+           <span class="info-text">&nbsp;~ $ cd</span> skills
            <br>
-           - work experience
+           <span class="info-text">&nbsp;~ $ cd</span> work experience
            <br>
-           - training and certification
+           <span class="info-text">&nbsp;~ $ cd</span> portfolio
            <br>
-           - contact
+           <span class="info-text">&nbsp;~ $ cd</span> training and certification
+           <br>
+           <span class="info-text">&nbsp;~ $ cd</span> contact
            <br>
         `,
 
            "training and certification": `
-              <span class="info-text">&nbsp;ls</span><span class="info-text1">&nbsp; infoCommand</span> 
-              <span class="info-text">&nbsp;cd ~ $ </span> To view my certification, please click the link below:
+               <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> To view my certification, please click the link below:<br>
               <ul style="list-style-type: none; padding-left: 0;">
-                 <li style="margin-bottom: 10px;">
+                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
                     <a href="https://drive.google.com/file/d/1PXSoM131cQ3JMSQchKSRdvuHJc7Hy9dT/view?usp=drive_link" 
                        style="text-decoration: none;">
                        Computer System Servicing NCII
                     </a>
                  </li>
-                 <li style="margin-bottom: 10px;">
+                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
                     <a href="https://drive.google.com/file/d/1locP9i6pJHTh02K00LINJBD1QsnP-Otq/view?usp=drive_link" 
                        style="text-decoration: none;">
                        Cybersecurity Awareness Capacity: Engineering and Ethical Hacking
                     </a>
                  </li>
-                 <li style="margin-bottom: 10px;">
+                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
                     <a href="https://drive.google.com/file/d/1i1mcBa23iUv0xyu4F4cOdOx6M4cYo1kk/view?usp=drive_link" 
                        style="text-decoration: none;">
                        Computer Hardware Basics
                     </a>
                  </li>
-                 <li style="margin-bottom: 10px;">
+                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
                     <a href="https://drive.google.com/file/d/1eFiK9GD6Ny7PMm8Hhz2w5qAnX-C1XRWA/view?usp=drive_link" 
                        style="text-decoration: none;">
                        AI-gnite: Exploring the Role of AI for Economic Growth and Innovation
