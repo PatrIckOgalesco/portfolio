@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>terminal-based portflio</title>
+      <title>Terminal-Based Portfolio</title>
       <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
       <link
             rel="shortcut icon"
@@ -14,169 +14,207 @@
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap');
 
+         :root {
+            --primary-color: #343541;
+            --background-color: #ece8e1;
+            --text-color: #000000;
+            --accent-color: #00ff00;
+            --hover-color: #f0f0f0;
+         }
+
          * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         font-family: 'Fira Code', monospace;
-         font-size: 12px;
-         color: #343541;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--primary-color);
          }
 
          body {
-         position: relative;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         margin: 0;
-         background-color: #ece8e1;
-         overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+            overflow: hidden;
          }
+
          body::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100vw;
-         height: 100vh;
-         background: #ece8e1;
-         background-size: cover;
-         background-position: center;
-         background-repeat: no-repeat;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--background-color);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
          }
+
          .window {
-         position: relative;
-         z-index: 1;
-         display: flex;
-         flex-direction: column;
-         background-color: #ece8e1;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 1);
-         color: #343541;
-         max-width: 90%;
-         max-height: 80%;
-         width: 100%;
-         height: 100%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--background-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            color: var(--primary-color);
+            max-width: 90%;
+            max-height: 80%;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
          }
+
          .window__taskbar {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         background-color: #ece8e1;
-         padding: 10px 15px;
-         border-bottom: 1px solid #ccc;
-         height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--background-color);
+            padding: 10px 15px;
+            border-bottom: 1px solid #ccc;
+            height: 50px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
          }
+
          .window__taskbar--actions button {
-         width: 12px;
-         height: 12px;
-         margin-right: 2px;
-         border-radius: 50%;
-         border: none;
+            width: 12px;
+            height: 12px;
+            margin-right: 8px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
          }
+
+         .window__taskbar--actions button:hover {
+            opacity: 0.7;
+         }
+
          .close { background-color: #343541; }
          .minimize { background-color: #343541; }
          .maximize { background-color: #343541; }
+
          .terminal_content {
-         flex: 1;
-         overflow-y: scroll;
-         padding: 15px;
-         background-color:#ece8e1;
-         color: #000000;
-         font-size: 14px;
-         border-bottom-left-radius: 10px;
-         border-bottom-right-radius: 10px;
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 14px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
          }
+
          .terminal_line p {
-         margin: 0;
+            margin: 0;
          }
-         .color1{ color: #343541; }
-         .color2 { color: #343541; }
+
+         .color1 { color: var(--primary-color); }
+         .color2 { color: var(--primary-color); }
+
          .cursor {
-         outline: none;
-         display: inline;
-         white-space: nowrap; /* Prevent wrapping */
-         word-break: keep-all; /* Keep text together */
+            outline: none;
+            display: inline;
+            white-space: nowrap;
+            word-break: keep-all;
          }
+
          .cursor::after {
-         content: '';
-         display: inline-block;
-         width: 5px;
-         height: 18px;
-         background-color: #00ff00;
-         animation: blink 1s step-end infinite;
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 18px;
+            background-color: var(--accent-color);
+            animation: blink 1s step-end infinite;
          }
+
          .intelli-sense-dropdown {
-         position: absolute;
-         background-color: white;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-         max-height: 150px;
-         overflow-y: auto;
-         z-index: 1000; /* Make sure it appears above other content */
-         display: none; /* Initially hidden */
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
          }
+
          .intelli-sense-dropdown p {
-         padding: 8px 12px; /* Add padding */
-         margin: 0;
-         cursor: pointer;
-         font-size: 12px;
-         white-space: nowrap; /* Prevent text wrapping */
+            padding: 8px 12px;
+            margin: 0;
+            cursor: pointer;
+            font-size: 12px;
+            white-space: nowrap;
          }
+
          .intelli-sense-dropdown p:hover {
-         background-color: #f0f0f0; /* Highlight on hover */
+            background-color: var(--hover-color);
          }
+
          .typing-animation {
-         animation: typing 3s steps(30, end), blink-caret .75s step-end infinite; /* Slowed down typing animation */
-         white-space: nowrap;
-         overflow: hidden;
-         border-right: 2px solid black;
+            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid black;
          }
-         .info-text{
-         color: #ff6347;
-         display: inline-block;
+
+         .info-text {
+            color: #ff6347;
+            display: inline-block;
          }
-         .info-text1{
-         color: #05ce91;
-         display: inline-block;
+
+         .info-text1 {
+            color: #05ce91;
+            display: inline-block;
          }
+
          @keyframes typing {
-         from { width: 0 }
-         to { width: 100% }
+            from { width: 0 }
+            to { width: 100% }
          }
+
          @keyframes blink-caret {
-         from, to { border-color: transparent }
-         50% { border-color: black; }
+            from, to { border-color: transparent }
+            50% { border-color: black; }
          }
+
          @keyframes blink {
-         0% { background-color: #343541; }
-         50% { background-color: transparent; }
-         100% { background-color: #343541; }
+            0% { background-color: var(--primary-color); }
+            50% { background-color: transparent; }
+            100% { background-color: var(--primary-color); }
          }
+
          /* Media Queries */
          @media (max-width: 480px) {
-         *{
-         font-size: 10px;
-         }
-         .window {
-         width: calc(100% - 10px);
-         height: calc(100vh - 10px);
-         margin: 10px;
-         }
-         .terminal {
-         padding: 10px;
-         }
-         .terminal_content {
-         font-size: 12px;
-         padding: 10px;
-         }
-         .window__taskbar {
-         padding: 5px 10px;
-         }
-         .cursor::after {
-         width: 8px;
-         height: 14px;
-         }
+            * {
+               font-size: 10px;
+            }
+
+            .window {
+               width: calc(100% - 20px);
+               height: calc(100vh - 20px);
+               margin: 10px;
+            }
+
+            .terminal_content {
+               font-size: 12px;
+               padding: 10px;
+            }
+
+            .window__taskbar {
+               padding: 5px 10px;
+            }
+
+            .cursor::after {
+               width: 8px;
+               height: 14px;
+            }
          }
       </style>
    </head>
@@ -194,10 +232,10 @@
          </div>
          <div class="terminal_content" id="terminal-content">
             <p>
-               ~ $<span class="info-text">&nbsp echo</span> Welcome to my Terminal-Based Porfolio!<br>
-               ~ $<span class="info-text">&nbsp echo</span> To see available commands, type <span class="info-text">'help'</span>.<br>
-               ~ $<span class="info-text">&nbsp echo</span> Environment successfully initialized.<br>
-               ~ $<span class="info-text">&nbsp echo</span> Start Typing...<br>
+               ~ $<span class="info-text">&nbsp;echo</span> Welcome to my Terminal-Based Portfolio!<br>
+               ~ $<span class="info-text">&nbsp;echo</span> To see available commands, type <span class="info-text">'help'</span>.<br>
+               ~ $<span class="info-text">&nbsp;echo</span> Environment successfully initialized.<br>
+               ~ $<span class="info-text">&nbsp;echo</span> Start Typing...<br>
             </p>
             <br>
             <!-- Initial Terminal Line -->
@@ -214,8 +252,8 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
          // IntelliSense options
-        let predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification"];
-        let commandResponses = {
+        const predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification", "clear", "exit"];
+        const commandResponses = {
            "hi": `
               <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Hello there! How can I assist you today?
            `,
@@ -226,7 +264,7 @@
 
             "about": "<span class=\"info-text\">&nbsp;~ $ </span><span class=\"info-text1\">&nbsp;infoCommand</span> I'm just an average person, nothing too special!<br><br> Anyway hello there! Allow me to introduce myself—I'm Patrick Ogalesco, an IT Specialist with a unique blend of technical expertise and creative problem-solving skills. I recently earned a BSc in Computer Science, where I delved into coding and programming while also nurturing my passion for digital artistry.<br><br>My journey combines creativity and logic, enabling me to tackle complex challenges and develop innovative solutions. Driven by a natural curiosity and a strong commitment to bridging the gap between technology and design, I'm eager to bring a fresh perspective to the field of IT.",
 
-           "skills": "<span class=\"info-text\">&nbsp;~ $ </span><span class=\"info-text1\">&nbsp;infoCommand</span> I possess skills in:<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Digital Art<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Web Development | Design<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Microsoft Applications<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Troubleshooting<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Network Configuration<br><br><span class=\"info-text\">&nbsp;~ $ ✔</span> I’m currently learning something new, but it’s a secret for now. Life feels so much better when no one knows what you're up to!",
+           "skills": "<span class=\"info-text\">&nbsp;~ $ </span><span class=\"info-text1\">&nbsp;infoCommand</span> I possess skills in:<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Digital Art<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Web Development | Design<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Microsoft Applications<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Troubleshooting<br><span class=\"info-text\">&nbsp;~ $ ✔</span> Network Configuration<br><br><span class=\"info-text\">&nbsp;~ $ ✔</span> I'm currently learning something new, but it's a secret for now. Life feels so much better when no one knows what you're up to!",
 
            "portfolio": `
               <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span>
@@ -264,6 +302,9 @@
            <br>
            <span class="info-text">&nbsp;~ $ cd</span> contact
            <br>
+           <span class="info-text">&nbsp;~ $ cd</span> clear (to clear the terminal)
+           <br>
+           <span class="info-text">&nbsp;~ $ cd</span> exit (to close the terminal)
         `,
 
            "training and certification": `
@@ -294,6 +335,12 @@
                     </a>
                  </li>
               </ul>
+           `,
+
+           "clear": null,  // Special case, handled in generateResponse
+
+           "exit": `
+              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Thank you for visiting my portfolio. Goodbye!
            `
         };
 
@@ -324,7 +371,6 @@
              const intelliSenseContainer = $("#intelliSenseContainer");
              intelliSenseContainer.empty();
          
-             // Show suggestions only if input length is greater than 0
              if (inputText.length > 0 && suggestions.length > 0) {
                  suggestions.forEach(option => {
                      const suggestionElement = $(`<p>${option}</p>`);
@@ -338,49 +384,60 @@
                  intelliSenseContainer.css({
                      left: `${rect.left}px`,
                      top: `${Math.min(rect.bottom + window.scrollY, window.innerHeight - intelliSenseContainer.outerHeight())}px`,
-                     display: 'block' // Show suggestions
+                     display: 'block'
                  });
              } else {
-                 intelliSenseContainer.hide(); // Hide if no suggestions or input is empty
+                 intelliSenseContainer.hide();
              }
          }
          
          function applyIntelliSense(suggestion) {
             const input = document.querySelector(".cursor");
-            input.innerText = suggestion; // Display the selected suggestion in the input
+            input.innerText = suggestion;
             placeCaretAtEnd(input);
-            $("#intelliSenseContainer").hide(); // Hide suggestions after selection
-
-            // Automatically trigger the response after selection
-            generateResponse(suggestion.toLowerCase()); // Pass the selected suggestion in lowercase
+            $("#intelliSenseContainer").hide();
+            generateResponse(suggestion.toLowerCase());
         }
 
          
          async function typeResponse(responseText, answer) {
              for (let i = 0; i < answer.length; i++) {
                  responseText.innerHTML = answer.substring(0, i + 1);
-                 await sleep(15); // Adjust typing speed here
+                 await sleep(15);
              }
          }
          
          async function generateResponse(command) {
-
             command = command.toLowerCase();
-
-
             let response = `zsh: command not found: ${command}<br>`;
 
-            // Use the commandResponses object for recognized commands
-            if (commandResponses[command]) {
+            if (command === "clear") {
+                location.reload();
+                return;
+            } else if (command === "exit") {
+                response = commandResponses[command];
+                $(".cursor").parent().remove();
+                let userCommandHtml = `<p><span class="color1">➜</span>&nbsp;&nbsp;<span class="color2">~</span>&nbsp;${command}</p>`;
+                $("#terminal-content").append(userCommandHtml);
+                let responseDiv = document.createElement("div");
+                responseDiv.className = "terminal_line";
+                let responseText = document.createElement("p");
+                responseText.className = "response";
+                responseDiv.appendChild(responseText);
+                $("#terminal-content").append(responseDiv);
+                await typeResponse(responseText, response);
+                setTimeout(() => {
+                    window.close();
+                }, 2000);
+                return;
+            } else if (commandResponses[command]) {
                 response = commandResponses[command] + "<br>";
             }
 
-            // Display the user input and response
-            $(".cursor").parent().remove(); // Remove the current cursor line
+            $(".cursor").parent().remove();
             let userCommandHtml = `<p><span class="color1">➜</span>&nbsp;&nbsp;<span class="color2">~</span>&nbsp;${command}</p>`;
             $("#terminal-content").append(userCommandHtml);
 
-            // Create a new div for the response
             let responseDiv = document.createElement("div");
             responseDiv.className = "terminal_line";
             let responseText = document.createElement("p");
@@ -388,37 +445,33 @@
             responseDiv.appendChild(responseText);
             $("#terminal-content").append(responseDiv);
 
-            // Type out the response
             await typeResponse(responseText, response);
 
-            // Add a new line or space after each user command and response
-            $("#terminal-content").append("<br><br>"); // Adds space
+            $("#terminal-content").append("<br><br>");
 
-            // Add a new terminal line for user input
             $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ git userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
             placeCaretAtEnd(document.querySelector(".cursor"));
             init_terminal_line();
 
-            // Scroll to the bottom after adding new content
             scrollToBottom();
         }
 
         async function init_terminal_line() {
             $(".cursor").keydown(async function (e) {
-                if (e.keyCode === 13) { // Enter key
+                if (e.keyCode === 13) {
                     e.preventDefault();
-                    let command = $(this).html().trim(); // Get the user input as is
+                    let command = $(this).html().trim();
                     if (!command) return;
 
-                    $("#intelliSenseContainer").hide(); // Hide IntelliSense after pressing Enter
+                    $("#intelliSenseContainer").hide();
 
-                    generateResponse(command.toLowerCase()); // Pass the command in lowercase for comparison
+                    generateResponse(command.toLowerCase());
                 }
             });
         }
 
         $(document).ready(function() {
-            init_terminal_line(); // Initialize terminal and event handling
+            init_terminal_line();
         });
       </script>
    </body>
