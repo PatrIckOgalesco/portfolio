@@ -28,6 +28,7 @@
             box-sizing: border-box;
             font-family: 'Fira Code', monospace;
             font-size: 13px;
+            font-weight: bold;
             color: var(--primary-color);
          }
 
@@ -240,7 +241,7 @@
             <!-- Initial Terminal Line -->
             <div class="terminal_line">
                <p>
-                  <span class="color1">➜ git userCommand</span>&nbsp;&nbsp;
+                  <span class="color1">➜ get userCommand</span>&nbsp;&nbsp;
                   <span class="color2">~</span>&nbsp;
                   <span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span>
                </p>
@@ -254,15 +255,15 @@
         const predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification", "fun fact", "clear", "exit"];
         const commandResponses = {
            "hi": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Hello there! How can I assist you today?
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hello there! How can I assist you today?
            `,
 
            "hello": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Hi! Welcome to my terminal portfolio. What would you like to know?
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hi! Welcome to my terminal portfolio. What would you like to know?
            `,
 
             "about": `
-            <span class="info-text">&nbsp;~ $ </span><span class="info-text1">&nbsp;infoCommand</span> Hello there! Allow me to introduce myself — I'm John Patrick Ogalesco, a tech enthusiast with a unique blend of software expertise and creativity. Over the years, I've immersed myself in coding and programming while also nurturing my passion for digital artistry.
+            <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hello there! Allow me to introduce myself — I'm John Patrick Ogalesco, a tech enthusiast with a unique blend of software expertise and creativity. Im currectly working at Integreon as Digital Specialist, I've immersed myself in coding and programming while also nurturing my passion for digital artistry.
             <br><br>
             My journey combines creativity and logic, empowering me to tackle complex challenges and craft innovative solutions. Guided by curiosity and a commitment to bridging the gap between technology and design, I'm passionate about bringing fresh perspectives to the IT industry.
             <br><br>
@@ -270,45 +271,47 @@
          `,
 
            "skills": `
-            <span class="info-text">&nbsp;~ $ echo</span><span class="info-text1">&nbsp;infoCommand</span> I possess skills in:
+            <span class="info-text">&nbsp;~ echo</span><span class="info-text1">&nbsp;command-output</span> I possess skills in:
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxl-html5'></i> HTML
+            <span class="info-text">&nbsp;~ </span>  ReactJS
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxl-css3'></i> CSS 
+            <span class="info-text">&nbsp;~ </span>  PHP
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxs-file-js'></i> JavaScript
+            <span class="info-text">&nbsp;~ </span>  MariaDB/MySQL
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxl-php'></i> PHP
+            <span class="info-text">&nbsp;~ </span>  Git & GitHub
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxs-data'></i> MariaDB/MySQL
+            <span class="info-text">&nbsp;~ </span>  Microsoft Office Suite
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxl-react'></i> ReactJS + Vite
+            <span class="info-text">&nbsp;~ </span>  Sketching and Digital Drawing
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxl-github'></i> Git & GitHub
+            <span class="info-text">&nbsp;~ </span> Graphics Design
             <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxs-spreadsheet'></i> Microsoft Office Suite
-            <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bxs-edit'></i> Sketching and Digital Drawing
-            <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bx-desktop'></i> Graphics Design
-            <br>
-            <span class="info-text">&nbsp;~ </span> <i class='bx bx-wrench'></i> IT Support
+            <span class="info-text">&nbsp;~ </span>  IT Support
             `,
+            //<i class='bx bxl-react'></i>
+            //<i class='bx bxl-php'></i>
+            //<i class='bx bxs-data'></i>
+            //<i class='bx bxl-github'></i>
+            //<i class='bx bxs-spreadsheet'></i>
+            //<i class='bx bxs-edit'></i>
+            //<i class='bx bx-desktop'></i> 
+            //<i class='bx bx-wrench'></i>
 
             
            "portfolio": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span>
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span>
               You can visit some of my work (others will be posted here later) :<br>
               <br><span class="info-text">&nbsp;~ </span>
               <a href="https://patrickogalesco.github.io/mac-os/" target="_blank" >Mac OS UI [Click Me]</a>
               <br>
            `,
 
-           "work experience": '<span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Computer System Services Trainer — Feb - April 2025 <br><span class="info-text1">&nbsp; ~ $ cd</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~ $ cd</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~ $ cd</span> Trained 30 students, improving their practical skills<br><br><span class="info-text">&nbsp;~ $ cd</span><span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Computer System Services Trainer — April - May 2024 <br><span class="info-text1">&nbsp; ~ $ cd</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~ $ cd</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~ $ cd</span> Trained 20, improving their practical skills<br><br><span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> IT Support Intership Trainee — May 07 - July 12, 2023 <br><span class="info-text1">&nbsp; ~ $ cd</span> Data Entry and Management<br> <span class="info-text1">&nbsp; ~ $ cd</span> Technical Support',
+           "work experience": '<span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — Feb - April 2025 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 30 students, improving their practical skills<br><br><span class="info-text">&nbsp;~ </span><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — April - May 2024 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 20, improving their practical skills<br><br><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> IT Support Intership Trainee — May 07 - July 12, 2023 <br><span class="info-text1">&nbsp; ~</span> Data Entry and Management<br> <span class="info-text1">&nbsp; ~</span> Technical Support',
 
            "contact": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> <br>You can reach me at:<br>
-              <a href="tel:09093303767" style="text-decoration: none;">Number: 09093303***</a>
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> <br>You can reach me at:<br>
+              <a href="tel:09093303767" style="text-decoration: none;">Number: 09093303767</a>
               <br>
               <a href="https://www.facebook.com/profile.php?id=100078646130852" target="_blank" style="text-decoration: none;">FB: Facebook Profile</a>
               <br>
@@ -316,7 +319,7 @@
            `,
 
            "fun fact": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Here are some fun facts about me:
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Here are some fun facts about me:
 
                <br><br>
                <span class="info-text">&nbsp;~ </span> I can solve a Rubik's 3x3x3 and a Mirror Cube.
@@ -336,7 +339,7 @@
            `,
 
            "help": `
-           <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> This system is a script-based command-line portfolio, meaning that it only responds based on my program. Below are the queries you can ask:
+           <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> This system is a script-based command-line portfolio, meaning that it only responds based on my program. Below are the queries you can ask:
            <br> 
            <span class="info-text">&nbsp;~ </span> about
            <br>
@@ -358,35 +361,25 @@
         `,
 
            "training and certification": `
-               <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> To view my certification, please click the link below:<br>
-              <ul style="list-style-type: none; padding-left: 0;">
-                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
-                    <a href="https://drive.google.com/file/d/1PXSoM131cQ3JMSQchKSRdvuHJc7Hy9dT/view?usp=drive_link">
-                       Computer System Servicing NCII
-                    </a>
-                 </li>
-                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
-                    <a href="https://drive.google.com/file/d/1locP9i6pJHTh02K00LINJBD1QsnP-Otq/view?usp=drive_link">
-                       Cybersecurity Awareness Capacity: Engineering and Ethical Hacking
-                    </a>
-                 </li>
-                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
-                    <a href="https://drive.google.com/file/d/1i1mcBa23iUv0xyu4F4cOdOx6M4cYo1kk/view?usp=drive_link">
-                       Computer Hardware Basics
-                    </a>
-                 </li>
-                 <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~ $ git</span>
-                    <a href="https://drive.google.com/file/d/1eFiK9GD6Ny7PMm8Hhz2w5qAnX-C1XRWA/view?usp=drive_link">
-                       AI-gnite: Exploring the Role of AI for Economic Growth and Innovation
-                    </a>
-                 </li>
-              </ul>
+               <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> To view my certification, please click the link below:<br>
+               <ul style="list-style-type: none; padding-left: 0;">
+                  <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~</span>
+                     <a href="https://drive.google.com/file/d/1PXSoM131cQ3JMSQchKSRdvuHJc7Hy9dT/view?usp=drive_link">
+                        Computer System Servicing NCII
+                     </a>
+                  </li>
+                  <li style="margin-bottom: 10px;"><span class="info-text">&nbsp;~</span>
+                     <a href="https://drive.google.com/file/d/1RQ4tnAPc7FIZRNSBZbMZ-J85ZeDCgyCn/view?usp=drive_link">
+                        “Insight Into Programming: A Comprehensive Review”
+                     </a> 
+                  </li>
+               </ul>
            `,
 
            "clear": null,  // Special case, handled in generateResponse
 
            "exit": `
-              <span class="info-text">&nbsp;~ $ cd</span><span class="info-text1">&nbsp;infoCommand</span> Thank you for visiting my portfolio. Goodbye!
+              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Thank you for visiting my portfolio. Goodbye!
            `
         };
 
@@ -496,7 +489,7 @@
 
             $("#terminal-content").append("<br><br>");
 
-            $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ git userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
+            $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ get userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
             placeCaretAtEnd(document.querySelector(".cursor"));
             init_terminal_line();
 
@@ -528,4 +521,3 @@
       </script>
    </body>
 </html>
-
