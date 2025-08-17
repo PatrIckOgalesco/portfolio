@@ -27,8 +27,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Fira Code', monospace;
-            font-size: 13px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 500;
             color: var(--primary-color);
          }
 
@@ -489,7 +489,7 @@
 
             $("#terminal-content").append("<br><br>");
 
-            $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ get userCommand</span>&nbsp;&nbsp;<span class="color1">~ $</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
+            $("#terminal-content").append(`<div class="terminal_line"><p><span class="color1">➜ get userCommand</span>&nbsp;&nbsp;<span class="color1">~</span>&nbsp;<span contenteditable="true" class="cursor" id="chat-input" oninput="showIntelliSense(event)"></span></p></div>`);
             placeCaretAtEnd(document.querySelector(".cursor"));
             init_terminal_line();
 
