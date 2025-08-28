@@ -14,12 +14,20 @@
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap');
 
-         :root {
+         /*:root {
             --primary-color: #343541;
             --background-color: #ece8e1;
             --text-color: #000000;
             --accent-color: #00ff00;
             --hover-color: #f0f0f0;
+         }*/
+
+         :root {
+            --primary-color:  #ece8e1;
+            --background-color:#131314;
+            --text-color: #343541;
+            --accent-color: #00ff00;
+            --hover-color: #1b1b1b;
          }
 
          * {
@@ -137,7 +145,7 @@
 
          .intelli-sense-dropdown {
             position: absolute;
-            background-color: white;
+            background-color: background-color;
             border: 1px solid #ccc;
             border-radius: 4px;
             max-height: 150px;
@@ -252,7 +260,7 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
          // IntelliSense options
-        const predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification", "fun fact", "clear", "exit"];
+        const predictiveTextOptions = ["about", "skills", "portfolio", "work experience", "contact", "help", "training and certification", "clear", "exit"];
         const commandResponses = {
            "hi": `
               <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hello there! How can I assist you today?
@@ -263,7 +271,7 @@
            `,
 
             "about": `
-            <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hello there! Allow me to introduce myself — I'm John Patrick Ogalesco, a tech enthusiast with a unique blend of software expertise and creativity. Im currectly working at Integreon as Digital Specialist, I've immersed myself in coding and programming while also nurturing my passion for digital artistry.
+            <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Hello there! I don't believe we've met — I'm John Patrick Ogalesco, a tech enthusiast with a unique blend of software expertise and creativity. I'm a game dev hobbyist who's immersed in coding and programming while also nurturing my passion for digital artistry.
             <br><br>
             My journey combines creativity and logic, empowering me to tackle complex challenges and craft innovative solutions. Guided by curiosity and a commitment to bridging the gap between technology and design, I'm passionate about bringing fresh perspectives to the IT industry.
             <br><br>
@@ -271,11 +279,11 @@
          `,
 
            "skills": `
-            <span class="info-text">&nbsp;~ echo</span><span class="info-text1">&nbsp;command-output</span> I possess skills in:
+            <span class="info-text">&nbsp;~ echo</span><span class="info-text1">&nbsp;command-output</span> Skilled in:
+            <br>
+            <span class="info-text">&nbsp;~ </span>  Game Geveloper(Hobbyist)
             <br>
             <span class="info-text">&nbsp;~ </span>  ReactJS
-            <br>
-            <span class="info-text">&nbsp;~ </span>  PHP
             <br>
             <span class="info-text">&nbsp;~ </span>  MariaDB/MySQL
             <br>
@@ -285,7 +293,7 @@
             <br>
             <span class="info-text">&nbsp;~ </span>  Sketching and Digital Drawing
             <br>
-            <span class="info-text">&nbsp;~ </span> Graphics Design
+            <span class="info-text">&nbsp;~ </span>  Graphics Design
             <br>
             <span class="info-text">&nbsp;~ </span>  IT Support
             `,
@@ -307,7 +315,7 @@
               <br>
            `,
 
-           "work experience": '<span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — Feb - April 2025 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 30 students, improving their practical skills<br><br><span class="info-text">&nbsp;~ </span><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — April - May 2024 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 20, improving their practical skills<br><br><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> IT Support Intership Trainee — May 07 - July 12, 2023 <br><span class="info-text1">&nbsp; ~</span> Data Entry and Management<br> <span class="info-text1">&nbsp; ~</span> Technical Support',
+           "work experience": '<span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Graphics Specialist — Aug - Current <br><span class="info-text1">&nbsp; ~</span> Produces, re-creates, edits, formats and layouts business presentations and documents according to the clients’ specifications using MS Office applications.<br><br><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — Feb - April 2025 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 30 students, improving their practical skills<br><br><span class="info-text">&nbsp;~ </span><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Computer System Services Trainer — April - May 2024 <br><span class="info-text1">&nbsp; ~</span> Conducted training sessions on computer assembly and disassembly, hardware troubleshooting, software installation, Windows 10 and Windows Server 2016 operating system installation, networking cabling, access point (AP) and router configuration, as well as server configuration and maintenance. <br><span class="info-text1">&nbsp; ~</span> Assisted students in understanding and applying technical concepts.<br><span class="info-text1">&nbsp; ~</span> Trained 20, improving their practical skills<br><br><span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> IT Support Intership Trainee — May 07 - July 12, 2023 <br><span class="info-text1">&nbsp; ~</span> Data Entry and Management<br> <span class="info-text1">&nbsp; ~</span> Technical Support',
 
            "contact": `
               <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> <br>You can reach me at:<br>
@@ -316,26 +324,6 @@
               <a href="https://www.facebook.com/profile.php?id=100078646130852" target="_blank" style="text-decoration: none;">FB: Facebook Profile</a>
               <br>
               <a href="mailto:jpatrickogalesco@gmail.com" style="text-decoration: none;">Gmail: jpatrickogalesco@gmail.com</a>
-           `,
-
-           "fun fact": `
-              <span class="info-text">&nbsp;~</span><span class="info-text1">&nbsp;command-output</span> Here are some fun facts about me:
-
-               <br><br>
-               <span class="info-text">&nbsp;~ </span> I can solve a Rubik's 3x3x3 and a Mirror Cube.
-               <br>
-               <span class="info-text">&nbsp;~ </span> I used to be a React developer(but not anymore)😁.
-               <br>
-               <span class="info-text">&nbsp;~ </span> I used to be a Sketch Artist(but not anymore)😁.
-               <br>
-               <span class="info-text">&nbsp;~ </span> 1st place in Comic Strip - District (2013).
-               <br>
-               <span class="info-text">&nbsp;~ </span> 3rd place in Comic Strip - Division (2013).
-               <br>
-               <span class="info-text">&nbsp;~ </span> Editorial Cartoonist (Journalism)
-               <br>
-               <span class="info-text">&nbsp;~ </span> I won many poster-making competitions during high school.
-
            `,
 
            "help": `
@@ -350,8 +338,6 @@
            <span class="info-text">&nbsp;~ </span> portfolio
            <br>
            <span class="info-text">&nbsp;~ </span> training and certification
-           <br>
-           <span class="info-text">&nbsp;~ </span> fun fact
            <br>
            <span class="info-text">&nbsp;~ </span> contact
            <br>
