@@ -1,3 +1,2 @@
-Personal Portfolio
-
-Terminal-based Design
+MY Personal Portfolio
+-Terminal-based Design
